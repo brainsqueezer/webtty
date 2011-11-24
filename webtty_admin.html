@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">         
+     
+<HTML>
+ 
+  <HEAD>
+    <TITLE>WebTTY - Server terminal on Webpage - Adminstration</TITLE>
+  </HEAD>
+  
+  <SCRIPT type='text/javascript' src='webtty.js'></SCRIPT>
+  
+  <STYLE>
+    textarea.webtty_clone
+       { 
+       background-color: #ccccff;
+       overflow:hidden; 
+       border-style: solid; 
+       border-color: #0000ff;
+       color: #0000ff;
+       }
+  </STYLE>
+
+  <BODY>
+    <TABLE border=0 height='100%' width='100%'>
+    <TR height='10%'>
+      <TD><H1>WebTTY - Administration</H1></TD></TR>
+    <TR height='80%'><TD>
+    <DIV id=dynamic style='height:100%'></DIV>
+    </TD></TR>
+    <TR height='10%'><TD>
+      Logging and administrative web page with slave windows for all active shells. 
+      For every new process a new slave window will open to display activity by
+      the new process. The windows will accumulate but can be manually closed
+      by the administrator.<BR>
+      </TD></TR>
+    </TABLE>
+    <SCRIPT type='text/javascript'>
+
+      function webtty_exit()
+        {
+	var div_element = document.getElementById('dynamic');
+	div_element.innerHTML = 'Refresh page to restart';
+	}
+
+      var a = new webtty_admin("dynamic",webtty_exit);
+      a.get_html();
+    </SCRIPT>
+ 
+  </BODY>
+ 
+</HTML>

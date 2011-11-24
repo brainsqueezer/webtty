@@ -1,0 +1,26 @@
+Version 0.2
+--------------------------------------------------------------------------
+
+- Logging and administrative web page with slave windows for all active 
+  shells. For every new process a new slave window will open to display 
+  activity by the new process. The windows will accumulate but can be 
+  closed by the administrator.
+
+- The javascript has been rewritten. The webtty package now provides two 
+  new javascript objects, that can be used like widgets on a webpage. 
+  
+- Bugfix: Line termination is fixed so that whatever is output by process 
+  is what is handed over to java script.
+		      
+- Bugfix: Input fifos will no longer accumulate in log folder
+ 
+- Bugfix: Special keys fixed with FireFox
+      
+- Bugfix: Terminal emulation corrected for 
+    <del> - The delete key os now working
+    <ctrl><g> - No sound is played - this character is simply removed
+
+
+Version 0.1
+--------------------------------------------------------------------------
+- Initial release

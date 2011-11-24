@@ -1,0 +1,58 @@
+     
+<HTML>
+ 
+  <HEAD>
+    <TITLE>WebTTY - Server terminal on Webpage</TITLE>
+  </HEAD>
+  
+  <SCRIPT type='text/javascript' src='webtty.js'></SCRIPT>
+  <SCRIPT type='text/javascript' src='w.js'></SCRIPT>
+  
+  <STYLE>
+    textarea.webtty
+       { 
+       background-color: #ccccff;
+       overflow:hidden; 
+       margin:0%;
+       height:99%; 
+       width: 99%; 
+       border-style: solid; 
+       border-color: #0000ff;
+       color: #0000ff;
+       }
+  </STYLE>
+
+  <BODY>
+    <TABLE border=0 height='100%' width='100%'><TR height='10%'><TD><H1>WebTTY</H1></TD></TR>
+    <TR height='80%'><TD>
+    <DIV id='dynamic' style='height:50%'></DIV>
+    <DIV id='dynamic2' style='height:50%'></DIV>
+    </TD></TR>
+    <TR height='10%'><TD>
+      Login name : root<BR>
+      Password   : <BR>
+      Shutdown   : halt<BR>
+      </TD></TR>
+    </TABLE>
+
+    <SCRIPT type='text/javascript'>
+      function webtty_exit()
+        {
+	var div_element = document.getElementById('dynamic');
+	div_element.innerHTML = 'Refresh page to get a new virtual machine';
+	}
+      function webtty_exit2()
+        {
+	var div_element = document.getElementById('dynamic2');
+	div_element.innerHTML = 'Refresh page to get a new second virtual machine';
+	}
+      a=new webtty('dynamic',webtty_exit);
+      b=new webtty('dynamic2',webtty_exit2);
+      
+      a.get_html();
+      b.get_html();
+    </SCRIPT>
+ 
+  </BODY>
+ 
+</HTML>

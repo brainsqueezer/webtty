@@ -1,0 +1,80 @@
+INSTALLING
+-------------------------------------------------------------------
+
+1) Unzip package in web directory, e.g in debian
+      cd /var/www
+      tar -xvjf webtty.tar.bz
+
+
+2) Compile webtty.c and make it executable for apache user, e.g. 
+   in debian 
+
+      cd /var/www/webtty
+      gcc webbty.c -o webtty -lutil 
+      chown www-data:www-data webtty
+      chmod 000  webtty
+      chmod u+rx webtty
+    
+
+3) Choose a directory for temporary files and make it writeable for 
+   apache user, e.g. in debian
+
+      mkdir /tmp/webtty
+      chown www-data:www-data /tmp/webtty
+      chmod 000   /tmp/webtty
+      chmod u+rwx  /tmp/webtty
+
+
+4) Update webtty.php with your choice of temporary directory, e.g.
+      
+      $temp_dir='/tmp/webtty/';
+
+
+5) Update webtty.sh with the command that you would like to 
+   run in a textarea and make it executable for apache user, e.g. 
+   in debian 
+
+      cd /var/www/webtty
+      chown www-data:www-data webtty.sh
+      chmod 000  webtty.sh
+      chmod u+rx webtty.sh
+    
+	
+4) with IE 6.0 goto http://yoursite/webtty/webtty.html
+
+
+5) click on textarea and start typing
+
+
+
+
+TROUBLESHOOTING
+-------------------------------------------------------------------
+
+Some debug messages be default can be found in syslog. Also webtty
+can be run manually, e.g.
+
+      cd /var/www/webtty 
+      su www-data
+      ./webtty /tmp/webtty/12345678 bash
+
+
+files /tmp/webtty/12345678_in, /tmp/webtty/12345678_out, and
+/tmp/webtty/12345678_buf should be created. You can manually attach to 
+the fifo by typing
+
+       cat </tmp/webtty/12345678_out
+
+or manually send command to the process by typing
+
+       echo ls >/tmp/webtty/12345678_in
+
+
+TODO
+-------------------------------------------------------------------
+
+Better terminal emulation. Improvement for minor browsers. Currently
+only IE and Firefox are tested. 
+
+Patches can be submitted to webtty@testape.com. Any help are really
+appreciated.
